@@ -3,6 +3,7 @@ class Employee {
     this.name = name;
     this.id = id;
     this.email = email;
+    this.role = "Employee";
   }
   getName() {
     console.log(this.name);
@@ -14,10 +15,17 @@ class Employee {
     console.log(this.email);
   }
   getRole() {
-    console.log(this.class);
+    let role = this.role;
+    console.log(role);
   }
 }
 
-module.exports = {
-  Employee,
-};
+module.exports = Employee;
+
+let Rachel = new Employee("Rachel", 568, "rachel@merkin.com", "Employee");
+
+console.log(Rachel);
+Rachel.getName();
+Rachel.getId();
+Rachel.getEmail();
+Rachel.getRole();
