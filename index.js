@@ -79,6 +79,103 @@ function newTeamMember() {
     });
 }
 
+function newEngineer() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "engineerName",
+        message: "What is your Engineer's name?",
+      },
+      {
+        type: "input",
+        name: "engineerId",
+        message: "What is your Engineer's id?",
+      },
+      {
+        type: "input",
+        name: "engineerEmail",
+        message: "What is your Engineer's email address?",
+        validate: (answer) => {
+          if (answer.indexOf("@") === -1) {
+            return "Please enter a valid email";
+          } else {
+            return true;
+          }
+        },
+      },
+      {
+        type: "input",
+        name: "GitHub",
+        message: "What is your Engineer's GitHub username?",
+      },
+    ])
+    .then((data) => {
+      let newEngineer = new Engineer(
+        data.engineerName,
+        data.engineerId,
+        data.engineerEmail,
+        data.GitHub
+      );
+      team.push(newEngineer);
+      id.push(data.engineerId);
+      console.log(newEngineer);
+      console.log("Team Array:");
+      console.log(team);
+      console.log("idArray:");
+      console.log(id);
+      newTeamMember();
+    });
+}
+
+function newIntern() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "internName",
+        message: "What is your Intern's name?",
+      },
+      {
+        type: "input",
+        name: "internId",
+        message: "What is your Intern's id?",
+      },
+      {
+        type: "input",
+        name: "internEmail",
+        message: "What is your intern's email address?",
+        validate: (answer) => {
+          if (answer.indexOf("@") === -1) {
+            return "Please enter a valid email";
+          } else {
+            return true;
+          }
+        },
+      },
+      {
+        type: "input",
+        name: "school",
+        message: "What is your Intern's school name?",
+      },
+    ])
+    .then((data) => {
+      let newIntern = new Intern(
+        data.internName,
+        data.internId,
+        data.internEmail,
+        data.school
+      );
+      team.push(newIntern);
+      id.push(data.internId);
+      console.log(newEngineer);
+      console.log("Team Array:");
+      console.log(team);
+      console.log("idArray:");
+      console.log(id);
+      newTeamMember();
+    });
+}
 /*
 ReadMe References:
 https://stackoverflow.com/questions/57321266/how-to-test-inquirer-validation
