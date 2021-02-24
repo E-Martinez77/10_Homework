@@ -10,24 +10,8 @@ class Engineer extends Employee {
     this.gitHub = gitHub;
   }
   getGitHub() {
-    console.log(this.gitHub);
+    return this.gitHub;
   }
 }
 
 module.exports = Engineer;
-
-let Scott = new Engineer("Scott", "5315", "scott@merkin.com", "E-Martinez77");
-
-console.log("----------");
-console.log(Scott);
-console.log("----------");
-Scott.getName();
-console.log("----------");
-Scott.getId();
-console.log("----------");
-Scott.getEmail();
-console.log("----------");
-Scott.getRole();
-console.log("----------");
-Scott.getGitHub();
-console.log("----------");

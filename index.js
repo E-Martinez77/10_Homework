@@ -16,30 +16,42 @@ const id = [];
 function init() {
   function generateManager() {
     console.log("Let's build your team!");
-    inquirer.prompt([
-      {
-        type: "input",
-        name: "managerName",
-        message: "What is your manager's name?",
-      },
-      {
-        type: "input",
-        name: "managerId",
-        message: "What is your manager's id?",
-      },
-      {
-        type: "input",
-        name: "managerEmail",
-        message: "What is your manager's Email address?",
-        validate: (answer) => {
-          if (answer.indexOf("@") === -1) {
-            return "Please enter a valid email";
-          } else {
-            return true;
-          }
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "managerName",
+          message: "What is your manager's name?",
         },
-      },
-    ]);
+        {
+          type: "input",
+          name: "managerId",
+          message: "What is your manager's id?",
+        },
+        {
+          type: "input",
+          name: "managerEmail",
+          message: "What is your manager's Email address?",
+          validate: (answer) => {
+            if (answer.indexOf("@") === -1) {
+              return "Please enter a valid email";
+            } else {
+              return true;
+            }
+          },
+        },
+      ])
+      .then((data) => {
+        let newManager = new Manager(
+          data.managerName,
+          data.managerId,
+          data.managerEmail,
+          data.officeNumber
+        );
+        team.push(newManager);
+        id.push(data.managerId);
+        console.log(newManager);
+      });
   }
 }
 
@@ -47,5 +59,6 @@ function init() {
 ReadMe References:
 https://stackoverflow.com/questions/57321266/how-to-test-inquirer-validation
 https://www.npmjs.com/package//inquirer
+https://stackoverflow.com/questions/41252314/how-can-i-correctly-check-if-a-string-does-not-contain-a-specific-word
 
 */

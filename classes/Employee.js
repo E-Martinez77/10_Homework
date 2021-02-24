@@ -6,26 +6,17 @@ class Employee {
     this.role = "Employee";
   }
   getName() {
-    console.log(this.name);
+    return this.name;
   }
   getId() {
-    console.log(this.id);
+    return this.id;
   }
   getEmail() {
-    console.log(this.email);
+    return this.email;
   }
   getRole() {
-    let role = this.role;
-    console.log(role);
+    return this.role;
   }
 }
 
 module.exports = Employee;
-
-let Rachel = new Employee("Rachel", 568, "rachel@merkin.com", "Employee");
-
-console.log(Rachel);
-Rachel.getName();
-Rachel.getId();
-Rachel.getEmail();
-Rachel.getRole();
