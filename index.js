@@ -50,9 +50,33 @@ function init() {
         );
         team.push(newManager);
         id.push(data.managerId);
-        console.log(newManager);
+        newTeamMember();
       });
   }
+}
+
+function newTeamMember() {
+  inquirer
+    .prompt([
+      {
+        type: "list",
+        name: "employeeType",
+        message: "What employee role would you like next?",
+        choices: ["Engineer", "Intern", "My team is complete"],
+      },
+    ])
+    .then((choice) => {
+      switch (choice.employeeType) {
+        case "Engineer":
+          newEngineer();
+          break;
+        case "Intern":
+          newIntern();
+          break;
+        default:
+          finishTeam();
+      }
+    });
 }
 
 /*
