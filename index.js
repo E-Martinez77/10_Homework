@@ -7,8 +7,8 @@ const Engineer = require("./classes/Engineer");
 const Intern = require("./classes/Intern");
 const Manager = require("./classes/Manager");
 
-const ouputDir = path.resolve(__dirname, "output");
-const outputPath = path.join(ouputDir, "page.html");
+const outputDir = path.resolve(__dirname, "output");
+const outputPath = path.join(outputDir, "page.html");
 
 const team = [];
 const id = [];
@@ -40,6 +40,11 @@ function init() {
             }
           },
         },
+        {
+          type: "input",
+          name: "officeNumber",
+          message: "What is your Manager's office number?",
+        },
       ])
       .then((data) => {
         let newManager = new Manager(
@@ -53,6 +58,7 @@ function init() {
         newTeamMember();
       });
   }
+  generateManager();
 }
 
 function newTeamMember() {
@@ -176,6 +182,16 @@ function newIntern() {
       newTeamMember();
     });
 }
+
+function finishTeam() {
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir);
+  }
+  fs.writeFileSync(outputPath, generateHTML(team), "utf-8");
+}
+
+init();
+
 /*
 ReadMe References:
 https://stackoverflow.com/questions/57321266/how-to-test-inquirer-validation

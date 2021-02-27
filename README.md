@@ -4,6 +4,8 @@
 
 This project creates a Team profile using Node JS. The Homework was centered around TDD and using Class constructors to build out employee roles.
 
+As of the due date of 02/24 this project is incomplete, but still in progress.
+
 ## Table of Contents
 
 \*[Installation](#installation)
