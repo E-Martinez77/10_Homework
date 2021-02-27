@@ -4,7 +4,7 @@
 
 This project creates a Team profile using Node JS. The Homework was centered around TDD and using Class constructors to build out employee roles.
 
-A video link of the app functionality has been linked [here](https://drive.google.com/file/d/1Rzg2pahfixB7NpGLFBdK4scg_3iBB9Xp/view)
+A video of the app functionality has been linked [here](https://drive.google.com/file/d/1Rzg2pahfixB7NpGLFBdK4scg_3iBB9Xp/view)
 
 ## Table of Contents
 
